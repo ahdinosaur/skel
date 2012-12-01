@@ -1,0 +1,19 @@
+#!/bin/sh
+
+if [ -d ~/.skel ]
+then
+  echo "you already have a skeleton."
+  exit
+fi
+
+echo "installing deps"
+./deps
+
+echo "cloning skel into ~/.skel"
+hash git >/dev/null && /usr/bin/env git clone https://github.com/ahdinosaur/skel.git ~/.skel || {
+  echo "git not installed"
+  exit
+}
+
+cd ~/.skel
+./run
