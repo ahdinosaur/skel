@@ -4,9 +4,18 @@ from glob import glob
 import os
 import subprocess
 
-# install dotfiles
-os.chdir("dotfiles/")
-subprocess.call("gem install bundler")
+# install virtualenv
+# install 
+
+# install environment
+os.chdir("env/")
+for environment in glob("env/*"):
+    subprocess.call("env/%s" % environment)
+os.chdir("../")
+
+# install configs
+os.chdir("config/")
+subprocess.call("/usr/bin/gem install bundler")
 subprocess.call("bundle")
 subprocess.call("bundle exec rake install")
 os.chdir("../")
@@ -15,3 +24,4 @@ os.chdir("../")
 os.chdir("modules/")
 for module in glob("modules/*"):
     subprocess.call("modules/%s" % module)
+os.chdir("../")
