@@ -1,28 +1,23 @@
-#!/usr/bin/env python
+#!/bin/bash
 
-from glob import glob
-import os
-import os.path
-import subprocess
+echo "installing environment"
+cd "env/"
+for environment in $(ls)
+do
+    "./$environment"
+done
+cd "../"
 
-# install virtualenv
-# install 
+echo "installing configs..."
+cd "config/"
+source ~/.rvm/script/rvm
+gem install bundler
+bundle
+bundle exec rake install
+cd "../"
 
-# install environment
-os.chdir("env/")
-for environment in glob("*"):
-    subprocess.call(os.path.join(os.getcwd(), environment))
-os.chdir("../")
-
-# install configs
-os.chdir("config/")
-subprocess.call("/usr/bin/gem install bundler")
-subprocess.call("bundle")
-subprocess.call("bundle exec rake install")
-os.chdir("../")
-
-# install modules
-os.chdir("modules/")
+echo "installing modules..."
+cd "modules/"
 for module in glob("*"):
-    subprocess.call(os.path.join(os.getcwd(), module))
-os.chdir("../")
+    "./$module"
+cd "../"
