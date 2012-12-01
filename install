@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ -d ~/.skel ]
 then
@@ -6,12 +6,17 @@ then
   exit
 fi
 
-echo "installing deps"
-./deps
+hash git >/dev/null || {
+  echo "git not installed"
+  echo "assuming debian and installing git"
+  sudo aptitude -y install git
+}
+  
 
 echo "cloning skel into ~/.skel"
 hash git >/dev/null && /usr/bin/env git clone https://github.com/ahdinosaur/skel.git ~/.skel || {
-  echo "git not installed"
+  echo "git still not installed"
+  echo "git available here: http://git-scm.com/downloads""
   exit
 }
 
