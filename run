@@ -18,6 +18,7 @@ cd "../"
 
 echo "installing modules..."
 cd "modules/"
-for module in glob("*"):
+for module in $(ls)
+do
     "./$module"
 cd "../"
