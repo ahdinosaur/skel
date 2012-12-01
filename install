@@ -6,11 +6,8 @@ then
   exit
 fi
 
-hash git >/dev/null || {
-  echo "git not installed"
-  echo "installing deps"
-  wget --no-check-certificate https://github.com/ahdinosaur/skel/raw/master/deps -O - | sh
-}
+echo "installing deps"
+wget --no-check-certificate https://github.com/ahdinosaur/skel/raw/master/deps -O - | sh
   
 
 echo "cloning skel into ~/.skel"
