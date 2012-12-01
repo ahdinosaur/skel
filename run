@@ -9,7 +9,7 @@ import subprocess
 
 # install environment
 os.chdir("env/")
-for environment in glob("env/*"):
+for environment in glob("*"):
     subprocess.call("env/%s" % environment)
 os.chdir("../")
 
@@ -22,6 +22,6 @@ os.chdir("../")
 
 # install modules
 os.chdir("modules/")
-for module in glob("modules/*"):
+for module in glob("*"):
     subprocess.call("modules/%s" % module)
 os.chdir("../")
