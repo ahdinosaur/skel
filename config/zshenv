@@ -4,4 +4,4 @@
 # commands that produce output or assume the shell is attached to
 # a tty
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin/:/usr/sbin:/sbin:$HOME/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin/:/usr/sbin:/sbin:$HOME/bin:$HOME/.rvm/bin 

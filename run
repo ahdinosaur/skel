@@ -10,7 +10,7 @@ cd "../"
 
 echo "installing configs..."
 cd "config/"
-source ~/.rvm/script/rvm
+source ~/.rvm/scripts/rvm
 gem install bundler
 bundle
 bundle exec rake install
