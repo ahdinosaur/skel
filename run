@@ -2,6 +2,7 @@
 
 from glob import glob
 import os
+import os.path
 import subprocess
 
 # install virtualenv
@@ -10,7 +11,7 @@ import subprocess
 # install environment
 os.chdir("env/")
 for environment in glob("*"):
-    subprocess.call("env/%s" % environment)
+    subprocess.call(os.path.join(os.getcwd(), environment))
 os.chdir("../")
 
 # install configs
@@ -23,5 +24,5 @@ os.chdir("../")
 # install modules
 os.chdir("modules/")
 for module in glob("*"):
-    subprocess.call("modules/%s" % module)
+    subprocess.call(os.path.join(os.getcwd(), module))
 os.chdir("../")
