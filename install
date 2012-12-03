@@ -17,5 +17,28 @@ hash git >/dev/null && /usr/bin/env git clone https://github.com/ahdinosaur/skel
   exit
 }
 
-cd ~/.skel
-./run
+cd "~/.skel"
+
+echo "installing environment"
+cd "env/"
+for environment in $(ls)
+do
+    "./$environment"
+done
+cd "../"
+
+echo "installing configs..."
+cd "config/"
+source ~/.rvm/scripts/rvm
+gem install bundler
+bundle
+bundle exec rake install
+cd "../"
+
+echo "installing modules..."
+cd "modules/"
+for module in $(ls)
+do
+    "./$module"
+done
+cd "../"
