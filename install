@@ -19,12 +19,9 @@ hash git >/dev/null && /usr/bin/env git clone https://github.com/ahdinosaur/skel
 
 cd "~/.skel"
 
-echo "installing environment"
-cd "env/"
-for environment in $(ls)
-do
-    "./$environment"
-done
+echo "installing rvm before installing configs..."
+cd "modules/"
+"./rvm.sh"
 cd "../"
 
 echo "installing configs..."
@@ -37,8 +34,8 @@ cd "../"
 
 echo "installing modules..."
 cd "modules/"
-for module in $(ls)
+for module in $(find . -maxdepth 1 -mindepth 1 -not -name rvm.sh -not -name .git -not -name README.md -print)
 do
-    "./$module"
+    "$module"
 done
 cd "../"

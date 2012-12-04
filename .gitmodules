@@ -1,6 +1,6 @@
-[submodule "dotfiles"]
-    path = dotfiles
-    url = git@github.com:ahdinosaur/dot.git
+[submodule "config"]
+	path = config
+	url = https://github.com/ahdinosaur/dot.git
 [submodule "modules"]
-    path = modules
-    url = git@github.com:ahdinosaur/skel-modules.git
+	path = modules
+	url = https://github.com/ahdinosaur/skel-modules.git
