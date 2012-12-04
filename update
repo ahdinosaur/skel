@@ -1,0 +1,14 @@
+#!/bin/sh
+
+echo "uninstalling dotfiles"
+cd "config/"
+bundle exec rake uninstall
+cd "../"
+
+echo "updating dotfiles"
+git submodule update
+
+echo "reinstalling dotfiles"
+cd "config/"
+bundle exec rake install
+cd "../"
