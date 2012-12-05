@@ -3,6 +3,9 @@
 cd "config/"
 
 echo "uninstalling dotfiles"
+source ~/.rvm/scripts/rvm
+gem install bundler
+bundle
 bundle exec rake uninstall
 
 echo "updating dotfiles"
